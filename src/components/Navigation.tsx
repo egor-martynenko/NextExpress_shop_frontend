@@ -8,6 +8,8 @@ const navItems = [
   { href: '/about', label: 'О нас' },
   { href: '/blog', label: 'Блог' },
   { href: '/albums', label: 'Альбомы' },
+  { href: '/todos', label: 'Todo' },
+
 ];
 
 export const Navigation = () => {
