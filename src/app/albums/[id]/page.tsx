@@ -7,8 +7,9 @@ type Props = {
 }
 export async function generateMetadata({params}: Props): Promise<Metadata> {
   const id = (await params).id;
-  const album = await fetch(`https://jsonplaceholder.typicode.com/albums/${id}`).then(res => res.json());
+  const data = await fetch(`https://jsonplaceholder.typicode.com/albums/${id}`, {cache: "force-cache", next: {revalidate: 15}});
 
+  const album = await data.json()
   return {
     title: `Album ${album.title} page`,
     description: `Album ${album.title} page`,
